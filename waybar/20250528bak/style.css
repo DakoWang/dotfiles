@@ -1,0 +1,264 @@
+@import "mocha.css";
+@import "customcolors.css";
+* {
+  font-family: Hack Nerd Font;
+  font-size: 17px;
+  min-height: 0;
+}
+
+window#waybar {
+  background-color: transparent; 
+}
+
+#waybar {
+  background: transparent;
+  color: @text_color;
+  margin: 5px 5px;
+}
+
+/* 工作区动画关键帧 */
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 30%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes gradient_f {
+  0% {
+    background-position: 0% 200%;
+  }
+  50% {
+    background-position: 200% 0%;
+  }
+  100% {
+    background-position: 400% 200%;
+  }
+}
+
+@keyframes gradient_f_nh {
+  0% {
+    background-position: 0% 200%;
+  }
+  100% {
+    background-position: 200% 200%;
+  }
+}
+
+#workspaces {
+  background-color: transparent;
+  margin-top: 10px; /* 上边距 */
+  margin-bottom: 10px; /* 下边距 */
+  margin-right: 10px; /* 右边距 */
+  margin-left: 0px; /* 左边距 */
+}
+
+#workspaces button {
+  /* box-shadow: rgba(0, 0, 0, 0.116) 2px 2px 5px 2px; */
+  background-color: @bg_color;
+  border-radius: 25px;
+  margin-right: 5px;
+  padding: 10px;
+  padding-top: 4px;
+  padding-bottom: 2px;
+  font-weight: bolder;
+  color: @text_color; /* 文字颜色 */
+  transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.68);
+}
+
+#workspaces button.active {
+  padding-right: 20px;
+  /* box-shadow: rgba(0, 0, 0, 0.288) 2px 2px 5px 2px; */
+  padding-left: 20px;
+  padding-bottom: 3px;
+  background: rgb(137,180,250);
+  background: radial-gradient(circle, 
+    rgba(137,180,250,1) 0%,
+    rgba(148,226,213,1) 25%,
+    rgba(137,180,250,1) 50%,
+    rgba(148,226,213,1) 75%,
+    rgba(137,180,250,1) 100%
+  );
+  background-size: 400% 400%;
+  animation: gradient_f 20s ease-in-out infinite;
+  transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
+}
+
+#workspaces button.active label {
+  color: #11111b;
+  font-weight: bolder;
+}
+
+#workspaces button label {
+  color: @text_color;
+  font-weight: bolder;
+}
+
+#clock,
+#battery,
+#cpu,
+#backlight,
+#pulseaudio,
+#custom-music,
+#custom-lock,
+#custom-power,
+#tray {
+  padding: 0 10px;
+  border-radius: 15px;
+  background: @bg_color;
+  color: #b4befe;
+  box-shadow: rgba(0, 0, 0, 0.116) 2px 2px 5px 2px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+/* Network 模块单独样式 - 固定宽度 */
+#network {
+  padding: 0 10px;
+  border-radius: 15px;
+  background: @bg_color;
+  color: #b4befe;
+  box-shadow: rgba(0, 0, 0, 0.116) 2px 2px 5px 2px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  min-width: 220px; /* 固定最小宽度 */
+  font-family: 'Hack Nerd Font', monospace; /* 使用等宽字体 */
+}
+
+#pulseaudio {
+  color: @volume_color;
+  margin-left: 1rem;
+}
+
+#backlight {
+  color: @brightness_color;
+}
+
+#battery {
+  color: @battery_color;
+}
+
+#battery.charging, #battery.plugged {
+  background-color: #297fff;
+}
+
+#battery.critical:not(.charging) {
+  background-color: #f38ba8;
+  color: #bf5673;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes blink {
+  to {
+    background-color: #f9e2af;
+    color: #96804e;
+  }
+}
+
+#clock {
+  color: @clock_color;
+}
+
+#custom-music {
+  color: @music_color;
+}
+
+#custom-lock {
+  color: @lock_color;
+}
+
+#custom-power {
+  color: @power_color;
+  margin-right: 1rem;
+}
+
+#tray {
+  margin-right: 1rem;
+}
+
+#custom-changemodel,
+#custom-wallpaper {
+  color: @lock_color;
+  padding-left: 20px;
+  padding-right: 25px;
+  border-radius: 15px;
+  background: @bg_color;
+  box-shadow: rgba(0, 0, 0, 0.116) 2px 2px 5px 2px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  min-height: 20px;
+  transition: all 0.3s ease;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+#custom-changemodel:hover,
+#custom-wallpaper:hover {
+  background: @bg_color;
+  box-shadow: rgba(0, 0, 0, 0.288) 2px 2px 5px 2px;
+  /* padding: 0 20px; */
+  padding-left: 25px;
+  padding-right: 30px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+#custom-changemodel:active,
+#custom-wallpaper:active {
+  background: #181825;
+  box-shadow: rgba(0, 0, 0, 0.116) 1px 1px 3px 1px;
+  /* padding: 0 12px; */
+  padding-left: 20px;
+  padding-right: 25px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+#custom-launcher {
+  color: @lock_color;
+  padding-left: 10px;
+  padding-right: 15px;
+  border-radius: 15px;
+  background: @bg_color;
+  box-shadow: rgba(0, 0, 0, 0.116) 2px 2px 5px 2px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 5px;
+  margin-left: 15px;
+  min-height: 20px;
+  transition: all 0.3s ease;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+#custom-launcher:hover {
+  background: @bg_color;
+  box-shadow: rgba(0, 0, 0, 0.288) 2px 2px 5px 2px;
+  padding-left: 15px;
+  padding-right: 20px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+#custom-launcher:active {
+  background: @bg_color;
+  box-shadow: rgba(0, 0, 0, 0.116) 1px 1px 3px 1px;
+  padding-left: 10px;
+  padding-right: 15px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+

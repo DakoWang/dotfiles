@@ -1,0 +1,121 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 35,
+    "margin-top": 5,
+    "margin-left": 10,
+    "margin-right": 10,
+    "modules-left": ["custom/launcher", "hyprland/workspaces", "custom/wallpaper", "custom/changemodel"],
+    "modules-center": ["custom/music"],
+    "modules-right": ["network", "pulseaudio", "backlight", "battery", "clock", "tray", "custom/notification", "custom/power"],
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-active": " {icon} ",
+        "on-click": "activate",
+        "sort-by-number": true,
+        "persistent-workspaces": {
+            "*": 5
+       }
+    },
+    "hyprland/window": {
+        "format": "\uf061 {}",
+        "separate-outputs": true
+    },
+    "tray": {
+        "icon-size": 16,
+        "spacing": 8
+    },
+    "custom/music": {
+        "format": "  {}",
+        "escape": true,
+        "interval": 5,
+        "tooltip": false,
+        "exec": "playerctl metadata --format='{{ title }}'",
+        "on-click": "playerctl play-pause",
+        "max-length": 50
+    },
+    "clock": {
+        "format": " {:%Y-%m-%d %I:%M}",
+        "interval":60,
+        "tooltip-format": "\n<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "calendar-weeks-pos": "right",
+        "today-format": "<span color='#7645AD'><b><u>{}</u></b></span>",
+        "format-calendar": "<span color='#aeaeae'><b>{}</b></span>",
+        "format-calendar-weeks": "<span color='#aeaeae'><b>W{:%V}</b></span>",
+        "format-calendar-weekdays": "<span color='#aeaeae'><b>{}</b></span>"
+    },
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰂃 {capacity}%",
+        "format-alt": "{icon} {capacity}%",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+    "network": {
+        "interval": 1,
+        "format-wifi": " {bandwidthUpBits}  {bandwidthDownBits}", 
+        "format-ethernet": " {bandwidthUpBits}  {bandwidthDownBits}",
+        "format-linked": "⚠ {ifname} (No IP)",
+        "format-disconnected": "⚠ Disconnected",
+        "tooltip-format": "󰈀 {ifname} {ipaddr}/{cidr} via {gwaddr}",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "on-click": "toggle"
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": " ",
+        "format-icons": {
+            "default": ["", "", " "]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/notification": {
+        "tooltip": false,
+        "format": " ",
+        "format-icons": {
+            "notification": "<span foreground='red'><sup></sup></span>",
+            "none": "",
+            "dnd-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-none": "",
+            "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "inhibited-none": "",
+            "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-inhibited-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+    "custom/power": {
+        "tooltip": false,
+        "on-click": "wlogout &",
+        "format": "󰐥"
+    },
+    "custom/wallpaper": {
+        "format": "",
+        "on-click": "python ~/.config/waybar/script/random_wallpaper.py",
+        "tooltip": false
+    },
+    "custom/launcher":{
+        "format": "",
+        "on-click": "rofi -show drun",
+        "on-click-right": "killall rofi"
+    },
+    "custom/changemodel": {
+        "format": "󰑓",
+        "on-click": "python ~/.config/waybar/script/change-color.py"
+    }
+
+}
