@@ -1,0 +1,9 @@
+:root {
+  --background: #282a36;
+  --background-translucent: rgba(40, 42, 54, 0.85);
+  --foreground: #f8f8f2;
+  --input-bg: #44475a;
+  --accent: #bd93f9;
+  --accent-shadow: rgba(189,147,249,0.08);
+  --accent-focus: #bd93f9aa;
+} 

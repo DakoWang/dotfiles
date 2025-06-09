@@ -11,7 +11,7 @@ Personal dotfiles for my Linux system, featuring a modern and productive develop
 - **Laptop**: Asus ROG Strix G513QY
 - **CPU**: AMD Ryzen 9 5900HX
 - **GPU**: AMD Radeon RX 6800M
-- **Display**: 165Hz QHD Display
+- **Display**: 1920x1080 165Hz QHD Display
 
 ### Software
 - **OS**: Arch Linux
