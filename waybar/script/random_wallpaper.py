@@ -4,6 +4,7 @@ import os
 import random
 import subprocess
 from pathlib import Path
+import sys
 
 # 壁纸目录
 WALLPAPER_DIR = os.path.expanduser("~/Pictures/wallpaper")
@@ -19,6 +20,16 @@ def get_random_cmd(selected_wallpaper):
     return cmd
 
 def main():
+    global WALLPAPER_DIR
+    # 如果有参数，检查第一个参数是否为文件夹且不为空
+    if len(sys.argv) > 1:
+        arg_dir = os.path.expanduser(sys.argv[1])
+        if os.path.isdir(arg_dir) and len(os.listdir(arg_dir)) > 0:
+            WALLPAPER_DIR = arg_dir
+        else:
+            subprocess.run(["notify-send", "参数错误", f"{arg_dir} 不是有效且非空的文件夹"])
+            return
+
     # 检查目录是否存在
     if not os.path.isdir(WALLPAPER_DIR):
         os.makedirs(WALLPAPER_DIR)
