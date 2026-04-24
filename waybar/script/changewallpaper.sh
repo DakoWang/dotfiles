@@ -11,7 +11,7 @@ if [ ! -d "$WALLPAPER_DIR" ]; then
 fi
 
 # 获取当前壁纸
-current_wallpaper=$(swww query | grep -oP 'image: \K.*')
+current_wallpaper=$(awww query | grep -oP 'image: \K.*')
 
 # 获取所有壁纸文件
 wallpapers=($(find "$WALLPAPER_DIR" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.gif" \)))
@@ -41,4 +41,4 @@ fi
 notify-send "Switching to next wallpaper" "Switching to next wallpaper"
 
 # 切换到下一个壁纸
-swww img "${wallpapers[$next_index]}" --transition-type wipe --transition-angle 30 --transition-step 90
+awww img "${wallpapers[$next_index]}" --transition-type wipe --transition-angle 30 --transition-step 90

@@ -11,7 +11,7 @@ WALLPAPER_DIR = os.path.expanduser("~/Pictures/wallpaper")
 
 def get_random_cmd(selected_wallpaper):
     cmd = [
-        "swww", "img", str(selected_wallpaper),
+        "awww", "img", str(selected_wallpaper),
         "--transition-type", "random",
         "--transition-angle", str(random.randint(1, 360)),
         "--transition-step", str(random.randint(1, 90)),
