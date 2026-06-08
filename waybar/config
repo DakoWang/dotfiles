@@ -9,13 +9,63 @@
     "modules-center": ["custom/music"],
     "modules-right": ["network", "pulseaudio", "backlight", "battery", "clock", "tray", "custom/notification", "custom/power"],
     "hyprland/workspaces": {
-        "format": "{icon}",
-        "format-active": " {icon} ",
+        "format": "{icon} {windows}",
+        "format-window-separator": " ",
         "on-click": "activate",
         "sort-by-number": true,
+        "all-outputs": true,
+        "show-special": false,
         "persistent-workspaces": {
             "*": 5
-       }
+        },
+        "format-icons": {
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "10": "10",
+            "focused": "",
+            "default": ""
+        },
+        "window-rewrite-default": "󰣆",
+        "window-rewrite": {
+            "class<firefox|org.mozilla.firefox|librewolf|floorp>": "",
+            "class<Chromium|[Cc]hrome|google-chrome>": "",
+            "class<microsoft-edge>": "",
+
+            "class<kitty>": "",
+
+            "class<code|code-url-handler|VSCodium>": "󰨞",
+
+            "class<org.telegram.desktop>": "",
+            "class<discord|[Ww]ebcord|Vesktop>": "",
+            "class<QQ>": "",
+            "class<wechat>": "",
+
+            "class<mpv>": "",
+            "class<vlc>": "󰕼",
+            "class<[Ss]potify>": "",
+            "class<obs|com.obsproject.Studio>": "󰑋",
+
+            "class<steam>": "",
+
+            "class<thunar|nemo|nautilus|dolphin>": "󰝰",
+
+            "class<Clash.Verge|clash-verge>": "󰄛",
+
+            "class<pavucontrol>": "󱡫",
+            "class<Remminaorg.remmina.Remmina>": "",
+
+            "title<.*ChatGPT.*>": "󰚩",
+            "title<.*deepseek.*>": "󰚩",
+            "title<.*github.*>": "",
+            "title<.*gmail.*>": "󰊫"
+        }
     },
     "hyprland/submap": {
     "format": "✌️ {}",
