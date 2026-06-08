@@ -1,0 +1,50 @@
+{
+    "include": [
+        "~/.config/waybar/Modules",
+        "~/.config/waybar/ModulesWorkspaces",
+        "~/.config/waybar/ModulesCustom",
+        "~/.config/waybar/ModulesGroups"
+    ],
+    "layer": "top",
+    "position": "top",
+    "exclusive": true,
+    "passthrough": false,
+    "spacing": 3,
+    "fixed-center": true,
+    "margin-top": 3,
+    "margin-left": 8,
+    "margin-right": 8,
+    "modules-left": [
+        "custom/separator#blank",
+        "hyprland/workspaces#icons",
+        "custom/separator#blank",
+        "custom/music"
+    ],
+    "modules-center": [
+        "hyprland/submap",
+        "custom/separator#blank",
+        "clock"
+    ],
+    "modules-right": [
+        "custom/notification",
+        "custom/separator#dot",
+        "tray",
+        "custom/separator#dot",
+        "group/audio",
+        "custom/separator#dot",
+        "backlight",
+        "custom/separator#dot",
+        "battery",
+        "custom/separator#dot",
+        "group/status"
+    ],
+    "hyprland/submap": {
+        "format": "✌️ {}",
+        "max-length": 8,
+        "tooltip": false
+    },
+    "hyprland/window": {
+        "format": " {}",
+        "separate-outputs": true
+    }
+}

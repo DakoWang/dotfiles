@@ -1,209 +1,266 @@
 @import "mocha.css";
-@import "customcolors.css";
 
 * {
-  font-family: "Hack Nerd Font";
-  font-size: 14px;
-  min-height: 0;
-}
-
-window#waybar,
-#waybar {
-  background-color: transparent;
-  color: @text_color;
-  box-shadow: none;
-}
-
-/* 给左右中三大区域独立背景 */
-.modules-left,
-.modules-right {
-  background: @bg_color;
-  border-radius: 18px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
-  padding: 0 8px;
-  margin: 5px 6px;
-}
-
-/* 工作区样式 */
-#workspaces {
-  background-color: transparent;
-  margin: 0 5px;
-  padding: 4px 12px;
-  transition-property: background, color, border;
-  transition-duration: 0.2s;
-}
-
-#workspaces button {
-  background-color: transparent;
-  color: @text_color;
-  border: none;
-  border-radius: 8px;
-  padding: 2px 6px;
-  margin: 0 2px;
-  min-width: 16px;
-  transition-property: background, color, border, margin, padding;
-  transition-duration: 0.2s;
-}
-
-#workspaces button:hover {
-  color: @accent_color;
-}
-
-#workspaces button.empty {
-  color: @accent_color;
-}
-
-#workspaces button.active {
-  color: @accent_color;
-  background-color: rgba(255, 255, 255, 0.06);
-  border-radius: 8px;
-  padding: 2px 8px;
-}
-
-#workspaces button.urgent {
-  color: @urgent_color;
-  border-bottom: 3px solid @urgent_color;
-}
-
-#custom-music {
-  background: @bg_color;
-  border-radius: 18px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
-  padding: 0 18px;
-  color: @text_color; 
-  margin: 4px 6px;
-}
-
-/* 所有模块的通用样式 */
-#custom-launcher,
-#custom-changemodel,
-#custom-wallpaper,
-#network,
-#pulseaudio,
-#backlight,
-#battery,
-#clock,
-#tray,
-#custom-notification,
-#custom-power {
-  padding: 0 6px;
-  color: @text_color;
-  background-color: transparent;
-  margin: 2px 4px;
-}
-
-#tray menu * {
-  min-height: 16px;
+  font-family: "JetBrains Mono Nerd Font", "Hack Nerd Font";
   font-weight: bold;
   font-size: 13px;
-  color: #9488e3;
+  min-height: 0;
+  font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
 }
 
-#tray menu separator {
-  min-height: 10px
+window#waybar {
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  background: transparent;
+  border-radius: 10px;
 }
 
-/* 特定模块的颜色 */
-#network {
-  color: @text_color;
-  min-width: 180px;
-  font-family: "Hack Nerd Font", monospace;
+window#waybar.hidden {
+  opacity: 0.2;
 }
 
-#pulseaudio {
-  color: @volume_color;
+/* Three sections as independent capsules */
+.modules-left,
+.modules-center,
+.modules-right {
+  font-weight: bold;
+  margin: 0px 10px;
+  margin-top: 4px;
+  background: @base;
+  border: 0px solid @overlay0;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-right: 4px;
+  padding-left: 4px;
+  border-radius: 20px;
 }
 
+.modules-left,
+.modules-right {
+  border: 0px solid @blue;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-right: 4px;
+  padding-left: 4px;
+}
+
+/* All modules padding */
+#backlight,
+#battery,
+#bluetooth,
+#clock,
+#cpu,
+#disk,
+#idle_inhibitor,
+#keyboard-state,
+#memory,
+#mpris,
+#network,
+#pulseaudio,
+#temperature,
+#tray,
+#window,
+#workspaces,
+#custom-changemodel,
+#custom-hint,
+#custom-launcher,
+#custom-lock,
+#custom-menu,
+#custom-music,
+#custom-notification,
+#custom-playerctl,
+#custom-power,
+#custom-wallpaper {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-right: 6px;
+  padding-left: 6px;
+}
+
+#idle_inhibitor {
+  color: @blue;
+}
+
+#bluetooth,
 #backlight {
-  color: @brightness_color;
+  color: @blue;
 }
 
 #battery {
-  color: @battery_color;
-}
-
-#battery.charging,
-#battery.plugged {
-  color: #a6e3a1;
-}
-
-#battery.critical:not(.charging) {
-  color: #f38ba8;
-  animation: blink 0.5s linear infinite alternate;
+  color: @green;
 }
 
 @keyframes blink {
   to {
-    color: #f9e2af;
+    color: @surface0;
   }
 }
 
+#battery.critical:not(.charging) {
+  background-color: @red;
+  color: @theme_text_color;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  box-shadow: inset 0 -3px transparent;
+}
+
 #clock {
-  color: @clock_color;
-  font-weight: bold;
+  color: @text;
+}
+
+#cpu {
+  color: @green;
+}
+
+#memory {
+  color: @sky;
+}
+
+#disk {
+  color: @sapphire;
+}
+
+#temperature {
+  color: @teal;
+}
+
+#temperature.critical {
+  background-color: @red;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+}
+
+/* Workspaces */
+#workspaces {
+  background-color: transparent;
+  margin: 0 5px;
+  padding: 4px 0px;
+}
+
+#workspaces button {
+  box-shadow: none;
+  text-shadow: none;
+  padding: 0px;
+  border-radius: 9px;
+  padding-left: 4px;
+  padding-right: 4px;
+  animation: gradient_f 20s ease-in infinite;
+  transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#workspaces button:hover {
+  border-radius: 10px;
+  color: @overlay0;
+  background-color: @surface0;
+  padding-left: 2px;
+  padding-right: 2px;
+  animation: gradient_f 20s ease-in infinite;
+  transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#workspaces button.persistent {
+  color: @surface1;
+  border-radius: 10px;
+}
+
+#workspaces button.active {
+  color: @teal;
+  border-radius: 10px;
+  padding-left: 8px;
+  padding-right: 8px;
+  animation: gradient_f 20s ease-in infinite;
+  transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#workspaces button.urgent {
+  color: @red;
+  border-radius: 0px;
 }
 
 #custom-music {
-  color: @music_color;
-  min-width: 1px;
+  color: @pink;
 }
 
-#custom-notification {
-  color: @text_color;
-  font-size: 16px;
-  margin-left: 8px;
-  margin-right: 8px;
-}
-
-#custom-power {
-  color: @power_color;
-  font-size: 16px;
-  padding-right: 15px;
-}
-
-/* 左侧按钮样式 */
-#custom-launcher,
-#custom-changemodel,
-#custom-wallpaper {
-  color: @lock_color;
-  font-size: 16px;
-  padding: 0 6px;
-  margin: 2px 4px;
-  background-color: transparent;
-  transition: all 0.3s ease;
+#custom-menu {
+  color: @teal;
 }
 
 #custom-launcher {
-  font-size: 18px;
-  padding-left: 15px;
+  color: @teal;
 }
 
-#custom-changemodel:hover,
-#custom-wallpaper:hover,
-#custom-launcher:hover {
-  color: @accent_color;
-  opacity: 0.8;
+#custom-power {
+  color: @red;
 }
 
-/* 悬停效果 */
-#clock:hover,
-#battery:hover,
-#backlight:hover,
-#network:hover {
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 10px;
+#custom-notification {
+  color: @text;
 }
 
-/* 工具提示样式 */
+#custom-changemodel {
+  color: @blue;
+}
+
+#custom-quicksettings {
+  color: @lavender;
+}
+
+#custom-wallpaper {
+  color: @mauve;
+}
+
+#custom-lock {
+  color: @maroon;
+}
+
+#custom-hint {
+  color: @yellow;
+}
+
+#pulseaudio {
+  color: @green;
+}
+
+#pulseaudio.bluetooth {
+  color: @pink;
+}
+
+#pulseaudio.muted {
+  color: @red;
+}
+
+#window {
+  color: @mauve;
+}
+
+#network {
+  color: @teal;
+}
+
+#network.disconnected,
+#network.disabled {
+  background-color: @surface0;
+  color: @text;
+}
+
+/* Tooltip */
 tooltip {
-  background: @bg_color;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  padding: 8px;
+  background: @base;
+  color: @text;
+  border-radius: 7px;
+  border-width: 0px;
 }
 
 tooltip label {
-  color: @text_color;
-  font-family: "Hack Nerd Font";
+  font-family: "JetBrains Mono Nerd Font", "Hack Nerd Font";
   font-size: 13px;
 }

@@ -1,0 +1,83 @@
+/* Workspace styles */
+
+{
+"hyprland/workspaces": {
+    "active-only": false,
+    "all-outputs": true,
+    "format": "{icon}",
+    "show-special": false,
+    "on-click": "activate",
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1",
+    "persistent-workspaces": {
+      "*": 5
+    },
+    "format-icons": {
+        "active": "",
+        "default": ""
+    }
+},
+
+"hyprland/workspaces#numbers": {
+    "active-only": false,
+    "all-outputs": true,
+    "format": "{icon}",
+    "show-special": false,
+    "on-click": "activate",
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1",
+    "persistent-workspaces": {
+      "*": 5
+    },
+    "format-icons": {
+        "1": "1", "2": "2", "3": "3", "4": "4", "5": "5",
+        "6": "6", "7": "7", "8": "8", "9": "9", "10": "10"
+    }
+},
+
+"hyprland/workspaces#icons": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "sort-by-number": true,
+    "show-special": false,
+    "on-click": "activate",
+    "persistent-workspaces": { "*": 5 },
+    "format": "{icon} {windows}",
+    "format-window-separator": " ",
+    "window-rewrite-default": "\uf059 ",
+    "window-rewrite": {
+        "class<firefox|org.mozilla.firefox|librewolf|floorp>": "\uf0239 ",
+        "class<Chromium|[Cc]hrome|google-chrome>": "\uf0268 ",
+        "class<microsoft-edge>": "\uf05d3 ",
+
+        "class<kitty>": "\uf120 ",
+        "class<com.mitchellh.ghostty>": "\uf120 ",
+
+        "class<code|code-url-handler|VSCodium>": "\uf121 ",
+
+        "class<org.telegram.desktop>": "\uf0525 ",
+        "class<discord|[Ww]ebcord|Vesktop>": "\uf0564 ",
+        "class<QQ>": "\uf075 ",
+        "class<wechat>": "\uf075 ",
+
+        "class<mpv>": "\uf03d ",
+        "class<vlc>": "\uf03d ",
+        "class<[Ss]potify>": "\uf001 ",
+        "class<obs|com.obsproject.Studio>": "\uf03d ",
+
+        "class<steam>": "\uf11b ",
+
+        "class<thunar|nemo|nautilus|dolphin>": "\uf07b ",
+
+        "class<Clash.Verge|clash-verge>": "\uf0ac ",
+
+        "class<pavucontrol>": "\uf028 ",
+
+        "title<.*youtube.*>": "\uf008 ",
+        "title<.*ChatGPT.*>": "\uf0ac ",
+        "title<.*deepseek.*>": "\uf0ac ",
+        "title<.*github.*>": "\uf09b ",
+        "title<.*gmail.*>": "\uf0e0 "
+    }
+}
+}
