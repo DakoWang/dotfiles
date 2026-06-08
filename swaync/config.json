@@ -31,16 +31,20 @@
   "widgets": ["dnd", "buttons-grid", "mpris", "title", "notifications"],
   "widget-config": {
     "title": {
-      "text": " Notifications",
+      "text": " Notifications",
       "clear-all-button": true,
-      "button-text": " Clear"
+      "button-text": " Clear"
     },
     "dnd": {
       "text": "Do Not Disturb"
     },
+    "label": {
+      "max-lines": 1,
+      "text": "Notification"
+    },
     "mpris": {
-      "image-size": 96,
-      "image-radius": 12
+      "image-size": 60,
+      "image-radius": 0
     },
     "volume": {
       "label": "󰕾"
@@ -51,20 +55,16 @@
     "buttons-grid": {
       "actions": [
         {
-          "label": "󰐥",
-          "command": "bash -c $HOME/.config/hypr/script/toggle_waybar.sh"
+          "label": " Wallpaper",
+          "command": "python ~/.config/waybar/script/random_wallpaper.py"
         },
         {
-          "label": "󰌾",
+          "label": "󰑓 Theme",
+          "command": "python ~/.config/waybar/script/change-color.py"
+        },
+        {
+          "label": " Lock",
           "command": "hyprlock"
-        },
-        {
-          "label": "󰍃",
-          "command": "hyprctl dispatch exit"
-        },
-        {
-          "label": "󰝟",
-          "command": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
         }
       ]
     }

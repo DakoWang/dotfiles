@@ -1,4 +1,5 @@
 import os
+import shutil
 import subprocess
 from pathlib import Path
 
@@ -6,6 +7,8 @@ from pathlib import Path
 DEBUG = False
 config_file = '/home/tomato/.config/waybar/waybar_theme_config'
 mocha_css = "/home/tomato/.config/waybar/mocha.css"
+swaync_style = "/home/tomato/.config/swaync/style.css"
+swaync_themes = "/home/tomato/.config/swaync/themes"
 
 # Catppuccin Mocha (dark)
 DARK_COLORS = {
@@ -77,6 +80,15 @@ def update_gtk_theme(theme):
     run(["gsettings", "set", "org.gnome.desktop.interface", "color-scheme", color_scheme])
 
 
+def update_swaync(theme):
+    src = Path(swaync_themes) / theme / "style.css"
+    if src.exists():
+        shutil.copy2(src, swaync_style)
+    run(["pkill", "swaync"])
+    subprocess.Popen(["swaync"])
+    log(f"swaync -> {theme}")
+
+
 def main():
     try:
         current = get_current_theme()
@@ -85,6 +97,7 @@ def main():
         colors = DARK_COLORS if new_theme == "dark" else LIGHT_COLORS
         write_mocha_css(colors)
         update_gtk_theme(new_theme)
+        update_swaync(new_theme)
 
         with open(config_file, 'w') as f:
             f.write(new_theme)
