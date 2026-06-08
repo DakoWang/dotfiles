@@ -16,17 +16,13 @@
     "margin-right": 8,
     "modules-left": [
         "custom/separator#blank",
-        "hyprland/workspaces#icons",
-        "custom/separator#blank",
-        "custom/music"
+        "hyprland/workspaces#icons"
     ],
     "modules-center": [
-        "hyprland/submap",
-        "custom/separator#blank",
-        "clock"
+        "custom/music"
     ],
     "modules-right": [
-        "custom/notification",
+        "network#speed",
         "custom/separator#dot",
         "tray",
         "custom/separator#dot",
@@ -35,6 +31,10 @@
         "backlight",
         "custom/separator#dot",
         "battery",
+        "custom/separator#dot",
+        "clock",
+        "custom/separator#dot",
+        "custom/notification",
         "custom/separator#dot",
         "group/status"
     ],

@@ -1,125 +1,111 @@
 {
-"custom/launcher": {
-    "format": "",
-    "on-click": "rofi -show drun",
-    "on-click-right": "killall rofi",
-    "tooltip": true,
-    "tooltip-format": "App Launcher"
-},
-
-"custom/wallpaper": {
-    "format": "",
-    "on-click": "python ~/.config/waybar/script/random_wallpaper.py",
-    "tooltip": false
-},
-
-"custom/changemodel": {
-    "format": "󰑓",
-    "on-click": "python ~/.config/waybar/script/change-color.py",
-    "tooltip": true,
-    "tooltip-format": "Change Theme"
-},
-
-"custom/quicksettings": {
-    "format": "󰒓",
-    "on-click": "bash ~/.config/hypr/script/quick-settings.sh",
-    "tooltip": true,
-    "tooltip-format": "Quick Settings (SUPER SHIFT G)"
-},
-
-"custom/music": {
-    "format": " {}",
-    "escape": true,
-    "interval": 5,
-    "tooltip": false,
-    "exec": "playerctl metadata --format='{{ title }}'",
-    "on-click": "playerctl play-pause",
-    "on-scroll-up": "playerctl position 5+",
-    "on-scroll-down": "playerctl position 5-",
-    "max-length": 50
-},
-
-"custom/playerctl": {
-    "format": "<span>{}</span>",
-    "return-type": "json",
-    "max-length": 25,
-    "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}}  {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-    "on-click-middle": "playerctl play-pause",
-    "on-click": "playerctl previous",
-    "on-click-right": "playerctl next",
-    "scroll-step": 5.0
-},
-
-"custom/notification": {
-    "tooltip": false,
-    "format": " {icon}",
-    "format-icons": {
-        "notification": "<span foreground='red'><sup></sup></span>",
-        "none": "",
-        "dnd-notification": "<span foreground='red'><sup></sup></span>",
-        "dnd-none": "",
-        "inhibited-notification": "<span foreground='red'><sup></sup></span>",
-        "inhibited-none": "",
-        "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
-        "dnd-inhibited-none": ""
+    "custom/launcher": {
+        "format": "",
+        "on-click": "rofi -show drun",
+        "on-click-right": "killall rofi",
+        "tooltip": true,
+        "tooltip-format": "App Launcher"
     },
-    "return-type": "json",
-    "exec-if": "which swaync-client",
-    "exec": "swaync-client -swb",
-    "on-click": "swaync-client -t -sw",
-    "on-click-right": "swaync-client -d -sw",
-    "escape": true
-},
-
-"custom/power": {
-    "tooltip": false,
-    "on-click": "wlogout &",
-    "format": "󰐥"
-},
-
-"custom/lock": {
-    "format": "󰌾",
-    "on-click": "hyprlock",
-    "tooltip": true,
-    "tooltip-format": "Screen Lock"
-},
-
-"custom/menu": {
-    "format": " ",
-    "on-click": "pkill rofi || rofi -show drun",
-    "on-click-right": "python ~/.config/waybar/script/change-color.py",
-    "tooltip": true,
-    "tooltip-format": "Left: Rofi Menu\nRight: Theme"
-},
-
-"custom/hint": {
-    "format": "󰺁 HINT",
-    "on-click": "notify-send 'Keybinds' 'SUPER+RETURN: Terminal\nSUPER+E: Files\nALT+SPACE: Launcher\nSUPER+C: Wallpaper\nSUPER+V: Clipboard\nSUPER+B: Waybar\nSUPER+L: Lock\nSUPER+Q: Close'",
-    "tooltip": true,
-    "tooltip-format": "Click for keybinds"
-},
-
-"custom/separator#dot": {
-    "format": "",
-    "interval": "once",
-    "tooltip": false
-},
-
-"custom/separator#line": {
-    "format": "|",
-    "interval": "once",
-    "tooltip": false
-},
-
-"custom/separator#blank": {
-    "format": "",
-    "interval": "once",
-    "tooltip": false
-},
-
-"custom/separator#blank_2": {
-    "format": "  ",
-    "interval": "once",
-    "tooltip": false
-}
+    "custom/wallpaper": {
+        "format": "",
+        "on-click": "python ~/.config/waybar/script/random_wallpaper.py",
+        "tooltip": false
+    },
+    "custom/changemodel": {
+        "format": "󰑓",
+        "on-click": "python ~/.config/waybar/script/change-color.py",
+        "tooltip": true,
+        "tooltip-format": "Change Theme"
+    },
+    "custom/quicksettings": {
+        "format": "󰒓",
+        "on-click": "bash ~/.config/hypr/script/quick-settings.sh",
+        "tooltip": true,
+        "tooltip-format": "Quick Settings (SUPER SHIFT G)"
+    },
+    "custom/music": {
+        "format": " {}",
+        "escape": true,
+        "interval": 5,
+        "tooltip": false,
+        "exec": "playerctl metadata --format='{{ title }}'",
+        "on-click": "playerctl play-pause",
+        "on-scroll-up": "playerctl position 5+",
+        "on-scroll-down": "playerctl position 5-",
+        "max-length": 50
+    },
+    "custom/playerctl": {
+        "format": "<span>{}</span>",
+        "return-type": "json",
+        "max-length": 25,
+        "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}}  {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+        "on-click-middle": "playerctl play-pause",
+        "on-click": "playerctl previous",
+        "on-click-right": "playerctl next",
+        "scroll-step": 5.0
+    },
+    "custom/notification": {
+        "tooltip": false,
+        "format": "󰂟 {icon}",
+        "format-icons": {
+            "notification": "<span foreground='red'><sup></sup></span>",
+            "none": "",
+            "dnd-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-none": "",
+            "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "inhibited-none": "",
+            "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-inhibited-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+    "custom/power": {
+        "tooltip": false,
+        "on-click": "wlogout &",
+        "format": "󰐥"
+    },
+    "custom/lock": {
+        "format": "󰌾",
+        "on-click": "hyprlock",
+        "tooltip": true,
+        "tooltip-format": "Screen Lock"
+    },
+    "custom/menu": {
+        "format": " ",
+        "on-click": "pkill rofi || rofi -show drun",
+        "on-click-right": "python ~/.config/waybar/script/change-color.py",
+        "tooltip": true,
+        "tooltip-format": "Left: Rofi Menu\nRight: Theme"
+    },
+    "custom/hint": {
+        "format": "󰺁 HINT",
+        "on-click": "notify-send 'Keybinds' 'SUPER+RETURN: Terminal\nSUPER+E: Files\nALT+SPACE: Launcher\nSUPER+C: Wallpaper\nSUPER+V: Clipboard\nSUPER+B: Waybar\nSUPER+L: Lock\nSUPER+Q: Close'",
+        "tooltip": true,
+        "tooltip-format": "Click for keybinds"
+    },
+    "custom/separator#dot": {
+        "format": "",
+        "interval": "once",
+        "tooltip": false
+    },
+    "custom/separator#line": {
+        "format": "|",
+        "interval": "once",
+        "tooltip": false
+    },
+    "custom/separator#blank": {
+        "format": "",
+        "interval": "once",
+        "tooltip": false
+    },
+    "custom/separator#blank_2": {
+        "format": "  ",
+        "interval": "once",
+        "tooltip": false
+    }
 }
