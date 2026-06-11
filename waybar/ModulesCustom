@@ -24,15 +24,14 @@
         "tooltip-format": "Quick Settings (SUPER SHIFT G)"
     },
     "custom/music": {
-        "format": " {}",
-        "escape": true,
-        "interval": 5,
-        "tooltip": false,
-        "exec": "playerctl metadata --format='{{ title }}'",
+        "format": "{}",
+        "return-type": "json",
+        "exec": "waybar-module-music --marquee --title-width 30 --format ' %icon% %artist% - %title%'",
+        "exec-if": "playerctl status 2>/dev/null | grep -qE 'Playing|Paused'",
+        "restart-interval": 5,
         "on-click": "playerctl play-pause",
         "on-scroll-up": "playerctl position 5+",
-        "on-scroll-down": "playerctl position 5-",
-        "max-length": 50
+        "on-scroll-down": "playerctl position 5-"
     },
     "custom/playerctl": {
         "format": "<span>{}</span>",
