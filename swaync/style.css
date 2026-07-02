@@ -1,9 +1,9 @@
-/* SwayNC Light Theme - Catppuccin Latte */
-@define-color noti-border-color #7c7f93;
-@define-color noti-bg #eff1f5;
-@define-color noti-bg-alt #eff1f5;
-@define-color noti-bg-hover #eff1f5;
-@define-color text-color #4c4f69;
+/* SwayNC config  */
+@define-color noti-border-color @color12;
+@define-color noti-bg #0e0e16;
+@define-color noti-bg-alt #0e0e16;
+@define-color noti-bg-hover #0e0e16;
+@define-color text-color @foreground;
 
 * {
   font-family: "JetBrains Mono Nerd Font";
@@ -14,7 +14,7 @@
 .control-center .notification-row:focus,
 .control-center .notification-row:hover {
   opacity: 1;
-  background: #eff1f5;
+  background: #0e0e16;
   border-radius: 10px;
 }
 
@@ -23,17 +23,18 @@
 }
 
 .notification {
-  background: #eff1f5;
+  /*color: #cdd6f4;*/
+  background: #0e0e16;
   padding: 7px 7px 7px 0px;
   border-radius: 10px;
-  border: 1px solid #ccd0da;
+  border: 1px solid #0e0e16;
 }
 
 .notification-group {
   background-color: transparent;
   border-radius: 10px;
+  /* border: 1px solid #cdd6f499; */
 }
-
 .image {
   margin-right: 12px;
   margin-left: 15px;
@@ -42,8 +43,8 @@
 }
 
 .close-button {
-  background: #d20f39;
-  color: #eff1f5;
+  background: #f7768e;
+  color: #0e0e16;
   text-shadow: none;
   padding: 0;
   border-radius: 10px;
@@ -53,7 +54,7 @@
 
 .close-button:hover {
   box-shadow: none;
-  background: #d20f39;
+  background: #f7768e;
   transition: all 0.15s ease-in-out;
   border: none;
 }
@@ -61,11 +62,11 @@
 .notification-action {
   border-top: none;
   border-radius: 10px;
-  background: #eff1f5;
-  color: #179299;
-  padding: 0px;
-  min-height: 0px;
-  min-width: 0px;
+  background: #0e0e16;
+  color: #89dceb;
+  padding: 0px; /* Reduce container padding */
+  min-height: 0px; /* Remove GTK min height */
+  min-width: 0px; /* Remove GTK min width */
 }
 
 .notification-action label {
@@ -73,7 +74,7 @@
   margin: 0;
   font-size: 0.8rem;
   font-family: monospace;
-  color: #179299;
+  color: #89dceb;
 }
 
 .notification-default-action {
@@ -81,13 +82,12 @@
   padding: 0;
   font-size: 0.1rem;
   border-radius: 10px;
-  background: #eff1f5;
+  background: #0e0e16;
 }
-
 .notification-default-action:hover,
 .notification-action:hover {
-  color: #4c4f69;
-  background: #eff1f5;
+  color: #cdd6f4;
+  background: #0e0e16;
 }
 
 .notification-default-action:not(:only-child) {
@@ -97,12 +97,12 @@
 
 .notification-action:first-child {
   border-bottom-left-radius: 10px;
-  background: #eff1f5;
+  background: #0e0e16;
 }
 
 .notification-action:last-child {
   border-bottom-right-radius: 10px;
-  background: #eff1f5;
+  background: #0e0e16;
 }
 
 .inline-reply {
@@ -110,64 +110,67 @@
 }
 
 .inline-reply-entry {
-  background: #eff1f5;
-  color: #4c4f69;
-  caret-color: #4c4f69;
-  border: 1px solid #ccd0da;
+  background: #0e0e16;
+  color: #cdd6f4;
+  caret-color: #cdd6f4;
+  border: 1px solid #0e0e16;
   border-radius: 10px;
 }
 
 .inline-reply-button {
   font-size: 0.5rem;
   margin-left: 4px;
-  background: #eff1f5;
-  border: 1px solid #ccd0da;
+  background: #0e0e16;
+  border: 1px solid #0e0e16;
   border-radius: 10px;
-  color: #4c4f69;
+  color: #cdd6f4;
 }
 
 .inline-reply-button:disabled {
   background: initial;
-  color: #4c4f69;
+  color: #cdd6f4;
   border: 1px solid transparent;
 }
 
 .inline-reply-button:hover {
-  background: #ccd0da;
+  background: #0e0e16;
 }
 
 .body-image {
   margin-top: 6px;
-  color: #4c4f69;
+  color: #cdd6f4;
   border-radius: 10px;
 }
 
 .summary {
   font-size: 0.9rem;
+  /* font-weight: bold; */
   background: transparent;
-  color: #4c4f69;
+  color: #cdd6f4;
   text-shadow: none;
 }
 
 .time {
   font-size: 0.8rem;
+  /* font-weight: bold; */
   background: transparent;
-  color: #4c4f69;
+  color: #cdd6f4;
   text-shadow: none;
   margin-right: 18px;
 }
 
 .body {
   font-size: 0.8rem;
+  /* font-weight: bold; */
   background: transparent;
-  color: #4c4f69;
+  color: #cdd6f4;
   text-shadow: none;
 }
 
 .control-center {
-  background: #eff1f5;
-  border: 1px solid #ccd0da;
-  color: #4c4f69;
+  background: #0e0e16;
+  border: 1px solid #0e0e16;
+  color: #cdd6f4;
   border-radius: 10px;
 }
 
@@ -184,12 +187,12 @@
 }
 
 .blank-window {
-  background: alpha(black, 0.05);
+  background: alpha(black, 0.1);
 }
 
 .widget-title {
-  color: #4c4f69;
-  background: #eff1f5;
+  color: #cdd6f4;
+  background: #0e0e16;
   padding: 3px 6px;
   margin: 5px;
   font-size: 1rem;
@@ -198,42 +201,44 @@
 
 .widget-title > button {
   font-size: 0.75rem;
-  color: #4c4f69;
+  color: #cdd6f4;
   border-radius: 10px;
   background: transparent;
-  border: 0.5px solid #ccd0da;
+  border: 0.5px solid #0e0e16;
 }
 
+/* clear button */
 .widget-title > button:hover {
-  background: #4c4f69;
-  color: #eff1f5;
+  background: #cdd6f4;
+  color: #d20f39;
 }
 
 .widget-dnd {
-  background: #eff1f5;
+  background: #0e0e16;
   padding: 3px 6px;
   margin: 5px;
   border-radius: 12px;
   font-size: 0.5rem;
-  color: #4c4f69;
+  color: #0e0e16;
 }
 
 .widget-dnd > switch {
   border-radius: 12px;
-  background: #4c4f69;
+  /* border: 1px solid #00ffff; */
+  background: #cdd6f4;
 }
 
 .widget-dnd > switch:checked {
-  background: #d20f39;
+  background: #f7768e;
 }
 
 .widget-dnd > switch slider {
-  background: #eff1f5;
+  background: #0e0e16;
   border-radius: 12px;
 }
 
 .widget-dnd > switch:checked slider {
-  background: #eff1f5;
+  background: #0e0e16;
   border-radius: 12px;
 }
 
@@ -243,12 +248,12 @@
 
 .widget-label > label {
   font-size: 1rem;
-  color: #4c4f69;
+  color: #cdd6f4;
 }
 
 .widget-mpris {
-  color: #4c4f69;
-  background: #eff1f5;
+  color: #cdd6f4;
+  background: #0e0e16;
   padding: 3px 6px;
   margin: 5px;
   border-radius: 10px;
@@ -273,11 +278,11 @@
 
 .widget-buttons-grid {
   font-size: 1.4rem;
-  color: #4c4f69;
+  color: #cdd6f4;
   padding: 8px 10px;
   margin: 8px 5px 4px 5px;
   border-radius: 12px;
-  background: #dce0e8;
+  background: #313244;
 }
 
 .widget-buttons-grid > flowbox {
@@ -292,19 +297,30 @@
 .widget-buttons-grid > flowbox > flowboxchild > button {
   margin: 4px;
   padding: 8px 0;
-  background: #eff1f5;
+  background: #1e1e2e;
   border-radius: 10px;
-  color: #4c4f69;
+  color: #cdd6f4;
   min-width: 0;
 }
 
+/* individual buttons */
 .widget-buttons-grid > flowbox > flowboxchild > button:hover {
-  background: #4c4f69;
-  color: #eff1f5;
+  background: #cdd6f4;
+  color: #1e1e2e;
+}
+
+.widget-menubar > box > .menu-button-bar > button {
+  border: none;
+  background: transparent;
+}
+
+.topbar-buttons > button {
+  border: none;
+  background: transparent;
 }
 
 .notification.low progress,
 .notification.normal progress {
-  background-color: #179299;
+  background-color: #00ffff;
   border-radius: 12.6px;
 }
